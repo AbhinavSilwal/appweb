@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xypixel - Post</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script type="module">const user = await getUserInfo() </script>
+    <style>
+      :root {
+      --color-primary: #0073ff;
+      --color-white: #141d28;
+      --color-black: #e9e9e9;
+      --color-black-1: #8da2bd;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+    
+    }
+    
+    .logo {
+      color: var(--color-white);
+      font-size: 30px;
+    }
+    
+    .logo span {
+      color: var(--color-primary);
+    }
+    
+    .menu-bar {
+      
+    
+      position: relative;
+    }
+    
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+    }
+    
+    .menu-bar ul li {
+      /* width: 120px; */
+      padding: 10px 30px;
+      /* text-align: center; */
+    
+      position: relative;
+    }
+    
+    .menu-bar ul li a {
+      font-size: 20px;
+      color: var(--color-white);
+      text-decoration: none;
+    
+      transition: all 0.3s;
+    }
+    
+    .menu-bar ul li a:hover {
+      color: var(--color-primary);
+    }
+    
+    .fas {
+      float: right;
+      margin-left: 10px;
+      padding-top: 3px;
+    }
+    
+    /* dropdown menu style */
+    .dropdown-menu {
+      display: none;
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: var(--color-black);
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu ul {
+      display: block;
+      margin: 10px;
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu ul li {
+      width: 150px;
+      padding: 10px;
+    }
+    
+    .dropdown-menu-1 {
+      display: none;
+    }
+    
+    .dropdown-menu ul li:hover .dropdown-menu-1 {
+      display: block;
+      position: absolute;
+      left: 150px;
+      top: 0;
+      background-color: var(--color-black);
+    }
+    
+   
+    </style>
+  </head>
+
+<body>
+  <header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <!-- 
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
+          viewBox="0 0 24 24">
+          <path d=""></path>
+        </svg>
+        -->
+        <div class="menu-bar">
+          <ul>
+            <li><a href="#">
+                <current_user class="email"></current_user><i class="fa-solid fa-caret-down"></i>
+              </a>
+              <div class="dropdown-menu">
+                <ul>
+                  <li><a href="#">Stats<i class="fas fa-solid fa-bars"></i></a></li>
+                  <li><a href="https://discord.xypixel.ga">Discord<i class="fas fa-brands fa-discord"></i></a></li>
+                  <li><a href="/settings">Settings<i class="fas fa-duotone fa-gear"></i></a></li>
+                  <li><a href="/logout">Logout<i class="fas fa-solid fa-arrow-right-from-bracket"></i></a></li>
+
+
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <span class="ml-3 text-xl"><b><a href="/settings">
+          
+          {{current_user.email}}
+          </a></b></span>
+      </a>
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        
+          <a class="mr-5 hover:text-gray-900" href='/'>Home<i class="fas fa-solid fa-house"></i></a>
+        <a class="mr-5 hover:text-gray-900" href='/forums'>Forums<i class="fas fa-regular fa-message"></i></a>
+        <a class="mr-5 hover:text-gray-900" href='/games'>Games<i class="fas fa-solid fa-gamepad"></i></a>
+        <a class="mr-5 hover:text-gray-900" href='https://store.xypixel.ga/'>Store<i class="fas fa-solid fa-store"></i> </a>
+      </nav>
+
+      <button
+        class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"><a
+          href="/logout">Logout</a>
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!--   End of Header -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <!-- alert stuff -->
+  <form method="post">
+  <section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Post</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Post a forum to Xypixel.</p>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Topic</label>
+            <input type="text" id="Topic" name="Topic" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-1200 py-1 px-3 leading-8 transition-colors duration-500 ease-in-out">
+          </div>
+          </div>
+        
+        <div class="p-2 w-full">
+          <div class="relative">
+            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+            <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+          </div>
+        </div>
+        <div class="p-2 w-full">
+          <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Post</button>
+        </div>
+        <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+          <a class="text-red-500">MC.XYPIXEL.GA</a>
+          <p class="leading-normal my-5">Have fun
+            <br>Playing in Xypixel.
+          </p>
+          <span class="inline-flex">
+            <a class="text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a class="ml-4 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a class="ml-4 text-gray-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a class="ml-4 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+  <!--   Start of fotter -->
+  <footer class="text-gray-600 body-font">
+    <div
+      class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
+            viewBox="0 0 24 24">
+            <path d=""></path>
+          </svg>
+          <span class="ml-3 text-xl">Xypixel</span>
+        </a>
+        <p class="mt-2 text-sm text-gray-500">The Best Hypixel Remake In Asia!</p>
+      </div>
+      <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">UseFull Links</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="/">Home</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="/rules">Rules</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="/games">IP</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="/vote">VOTE</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Store</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="https://store.xypixel.ga">Ranks</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="https://store.xypixel.ga">Ranks Upgrade</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="https://store.xypixel.ga">In Game Currency</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="https://store.xypixel.ga">Skyblock Gems</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Help</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Appel</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Bug Reports</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Applications</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Payments</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">About</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800" href="https://discord.xypixel.ga">Discord</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Youtube</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Contact</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">email</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-100">
+      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+        <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 Xypixel —
+          <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1"
+            target="_blank">@xypixel</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+          <a class="text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+              </path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none"
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

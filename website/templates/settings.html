@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Profile</title>
+    <style>
+        .back-button {
+	position: absolute;
+  text-indent: -15px;
+  padding: 5px 0 5px 10px;
+  width: 53px;/* modified by label length */
+	overflow: auto;
+}
+        body{
+    background: silver;
+    font-family: sans-serif, Segoe UI;
+}
+.container{
+     background: rgb(248, 246, 242);
+     width: 550px;
+     height: 450px;
+    margin: auto;
+    position: relative;    
+    margin-top: 10%;
+    box-shadow: 2px 5px 20px rgba(119,119,119,.5);
+}
+.leftbox{
+    float:left;
+    top:-5%;
+    left: 5%;
+    background: rgb(112, 105, 105);
+    position: absolute;
+    width:15%;
+    height:110%;
+    box-shadow:3px 3px 10px rgba(119,119,119,.5);
+    border: .1em solid #fff;
+}
+
+nav a {
+    list-style: none;
+    padding:35px;
+    color:rgb(5, 5, 5);
+    display:block;
+    transition: all .3s ;
+}
+nav a:hover {
+    color:whitesmoke;
+    cursor:pointer;
+    transform:scale(1.2);
+
+}
+nav a:first-child {
+    margin-top: 7px;
+
+}
+nav a.active{
+    color:whitesmoke;
+}
+
+.rightbox{
+    width: 60%;
+    margin-left: 27%;
+
+}
+.tabShow {
+    transition: all .5s;
+    width: 80%;
+}
+h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(54, 52, 52);
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 35px;
+
+}
+
+h2 {
+    color:rgb(54, 52, 52);
+    font-family: 'sans-serif', 'Segoe UI';
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-left: 2px;
+    margin-top: 10px;
+
+}
+
+.conatiner .rightbox .tabShow a:hover  {
+    color:silver
+}
+
+
+
+
+.input{
+    border: 0;
+    border-bottom: 1px solid rgb(59, 52, 52);
+   
+}
+.p {
+    font-family: monospace;
+}
+span{
+    font-size:.8em ;
+    color: #777;
+}
+.btn {
+    font-family: 'arial';
+    font-size: 15px;
+    border:0;
+    color: white;
+    background: #7ed366;
+    padding: 7px, 15px;
+    box-shadow: 0px 2px 4px rgba(119,119,119,.5);
+    cursor:pointer;
+    margin-top: 15px;
+}
+.tabShow a{
+    text-decoration: none;
+    color: powderblue;
+}
+.tabShow a:hover {
+    color: silver;
+    text-decoration: none;
+}
+
+.label {
+	display: block;
+  width: auto;
+  line-height: 26px;
+  font-size: 12px;
+  font-weight: 900;
+  font-family: helvetica, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(239,239,239,1);
+  border: 1px solid #bcbcbc;
+  border-left: 0;
+  color: #888; 
+  text-shadow: 0 1px 0 rgba(255,255,255, 0.8);
+}
+.label:hover {
+  color: hsl(210, 100%, 40%); 
+}
+
+    </style>
+ 
+ 
+
+         
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script type="module">const user = await getUserInfo() </script>
+    
+</head>
+<body>
+    <div class="back-button">
+	<a href="/" class="label">back</a>
+    </div>
+    <div class="container">
+        <div class = "leftbox">
+            <nav>
+                <a onclick="tabs(0)"class = "tab active">
+                <i class = "fa fa-user"></i>
+                </a>
+                <a onclick="tabs(1)"class = "tab">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </a>
+                    <a onclick="tabs(2)"class = "tab">
+                        <i class="fa-solid fa-palette"></i>
+                    </a>
+                        <a onclick="tabs(3)"class = "tab">
+                            <i class="fas fa-regular fa-message"></i>
+                        </a>
+                            <a onclick="tabs(4)"class = "tab">
+                                <i class = "fas fa-cogs"></i>
+                            </a>
+            </nav>
+                 </div>
+                 <div class="rightbox">
+                     <div class="profile tabShow">
+                         <h1>Personal Info</h1>
+                         <h2>Username</h2>
+                         <p>{{current_user.email}}</p>
+                         <current_user class="email"></current_user>
+                         <h2>Email</h2>
+                         <p>example@gmail.com</p>
+                         <h2>Password</h2>
+                         ******
+                         <h2>Rank</h2>
+                         <p>You Currently Don't Have A Rank. If You Want To Buy A Rank Then Visit <a href = 'https://store.xypixel.ga'>Xypixel Shop</a></p>
+
+                           
+                     </div>
+                     <div class=" Change tabShow">
+                        <h1>Change Personal Info</h1>
+                        <h2> Change Username</h2>
+                        <input type="text" class="input" value = "current_user">
+                        <h2>Change Email</h2>
+                        <input type="text" class="input" value = "current_user.email" >
+                        <h2>Change Password</h2>
+                        <p> Coming Soon!!!</p>
+                        <h2>Change Rank</h2>
+                        <p>To Change Rank Vist <a href = 'https://store.xypixel.ga'>Xypixel Shop</a></p>
+
+
+                 </div>
+                 <div class="Appearance tabShow">
+                    <h1>Change Appearance</h1>
+                    <h2>COMING SOON !!!!</h2>
+                 </div>
+                 <div class="forums tabShow">
+                     <h1>Forums Management</h1>
+                     <h2>Number of Forums Posts</h2>
+                     <p>{{user.posts}}</p>
+                     <h2>Total Likes:</h2>
+                     <p>0</p>
+                     <h2> <a href = '#'>Manage Your Forums Posts</a></h2>
+                     <h2>More Info:</h2>
+                     <p>To get More Info About Your Forums Activity visit <a href = '/forums'>Xypixel Forums</a>
+                 </div>
+
+                 <div class=" Advanced tabShow">
+                    <h1>Advanced Settings</h1>
+                    <h2>Link Your Discord Account</h2>
+                    <p> To Link Your Account With The Discord Account <a href = 'https://discord.gg/deysprc9kG'>Click Here</a> And Join Our Discord Server. After joining Go To The Channel #linkaccount and Follow The Instructions Provided.
+                    <h2>Create A New Account</h2>
+                    <button class="btn"> <a href = 'https://ablag.pythonanywhere.com/login'>Create</a></button>
+                    <h2>Other Options Coming Soon!!!</h2>
+
+
+
+             </div>
+            </div>
+    </div>
+
+    <script>
+        const tabBtn = document.querySelectorAll(".tab");
+        const tab = document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex) {
+            tab.forEach(function(node) {
+                node.style.display = "none";
+            });
+            tab[panelIndex].style.display = "block";
+            }
+            tabs(0);
+    </script>
+</body>
+</html>
